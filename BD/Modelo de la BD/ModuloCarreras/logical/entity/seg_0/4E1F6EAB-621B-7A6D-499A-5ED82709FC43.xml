@@ -1,0 +1,137 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="4E1F6EAB-621B-7A6D-499A-5ED82709FC43" name="Carreras">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 04:05:48 UTC</createdTime>
+<generatorID>582D820A-97B9-D594-4231-83ACC42D8EC4</generatorID>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<engineerTo>
+<item key="C9E8A958-5594-8A67-1E8C-0E69D7766E1A" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="idCarrera" id="57DD3295-345D-CCB8-01D4-E0FD4AAE6F47">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 04:05:48 UTC</createdTime>
+<generatorID>7AFDB590-E14E-6DA5-60C9-1BFA326287D4</generatorID>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<engineerTo>
+<item key="C9E8A958-5594-8A67-1E8C-0E69D7766E1A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nombre" id="E53F0C0F-F4CD-08E3-89CF-360EB82ADCDE">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 04:05:48 UTC</createdTime>
+<generatorID>194CE9B7-6AE3-1A7D-138B-85AEB94A7728</generatorID>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<engineerTo>
+<item key="C9E8A958-5594-8A67-1E8C-0E69D7766E1A" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="siglas" id="5CEFB229-CF05-D937-AF7A-C59E4981A313">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 04:05:48 UTC</createdTime>
+<generatorID>5E2348DB-EE47-4E1A-CA83-5484A013DFB4</generatorID>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<engineerTo>
+<item key="C9E8A958-5594-8A67-1E8C-0E69D7766E1A" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="objetivo" id="C9A18F1F-BF6B-DC7F-F1A8-0BE1C2C28A68">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 04:05:48 UTC</createdTime>
+<generatorID>967964FF-F97D-E0D8-0E73-5D33F3540183</generatorID>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<engineerTo>
+<item key="C9E8A958-5594-8A67-1E8C-0E69D7766E1A" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="perfilIngreso" id="730DFAAB-EDED-46E9-05CC-FAC089CABE0E">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 04:05:48 UTC</createdTime>
+<generatorID>83C9F9A1-3CCF-38BA-6FB0-5BAE89D4060A</generatorID>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<engineerTo>
+<item key="C9E8A958-5594-8A67-1E8C-0E69D7766E1A" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500</dataTypeSize>
+<ownDataTypeParameters>500,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="perfilEgreso" id="BBBD5A96-D155-9C80-4DE1-956BDF5DCABE">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 04:05:48 UTC</createdTime>
+<generatorID>CE3A5A59-00D8-BD32-ADE6-69BD5196FC09</generatorID>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<engineerTo>
+<item key="C9E8A958-5594-8A67-1E8C-0E69D7766E1A" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500</dataTypeSize>
+<ownDataTypeParameters>500,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="estatus" id="F442FEA6-CAA2-97D9-587A-3E1EF26DC315">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 04:05:48 UTC</createdTime>
+<generatorID>43D0084A-4526-8CBA-7AB4-402FE35FAC36</generatorID>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<engineerTo>
+<item key="C9E8A958-5594-8A67-1E8C-0E69D7766E1A" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT055</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="290883C3-332B-B627-A8BB-0736F8EC92B3" name="Carreras PK">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 04:05:48 UTC</createdTime>
+<generatorID>E4CDEB6F-235D-5005-881F-F9C71572B0AC</generatorID>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<engineerTo>
+<item key="C9E8A958-5594-8A67-1E8C-0E69D7766E1A" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>57DD3295-345D-CCB8-01D4-E0FD4AAE6F47</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

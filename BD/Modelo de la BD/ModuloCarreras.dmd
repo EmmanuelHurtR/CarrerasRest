@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="ModuloCarreras" id="859CDDD4-055C-62A6-D1D5-736CE67B800C" version="3.5">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 01:47:23 UTC</createdTime>
+<ownerDesignName>ModuloCarreras_ModeloBD</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>859CDDD4-055C-62A6-D1D5-736CE67B800C</designId>
+</OSDM_Design>

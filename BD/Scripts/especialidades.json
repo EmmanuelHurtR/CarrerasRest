@@ -1,0 +1,11 @@
+{
+    "clave":"<string>",
+    "nombre":"<string>",
+    "descripcion":"<string>",
+    "vigencia":"<string>",
+    "creditos":"<int>",
+    "estatus":"<bit>",
+    "planesEstudio":[{
+        "planEstudio":"<ref(planesEstudio)>"
+    }]
+}

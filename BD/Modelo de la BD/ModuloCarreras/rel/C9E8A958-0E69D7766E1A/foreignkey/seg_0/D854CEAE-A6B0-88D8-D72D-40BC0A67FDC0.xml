@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="D854CEAE-A6B0-88D8-D72D-40BC0A67FDC0" containerWithKeyObject="8C9D3CD2-B639-2B65-86D6-55BF6316E686" localFKIndex="A6BD0898-FC09-3681-CC13-73E856E6A5C7" name="Especialidades_PlanesEstudio_FK">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 03:59:39 UTC</createdTime>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<referredTableLongName>PlanesEstudio</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>31468CC0-1E95-BB68-7906-01CAF14B1AEC</referredTableID>
+<keyObject>7905F991-7CC5-013F-DBD5-C0E6712B2DC1</keyObject>
+<referredKeyID>7905F991-7CC5-013F-DBD5-C0E6712B2DC1</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>idPlanEstudio</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

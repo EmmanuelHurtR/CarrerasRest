@@ -1,0 +1,8 @@
+{
+    "nombre":"<string>",
+    "siglas":"<string>",
+    "objetivo":"<string>",
+    "perfilInreso":"<string>",
+    "perfilEgreso":"<string>",
+    "estatus":"<bit>"
+}

@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="62EF276B-3C1B-0356-0BD0-7B8BE3A618B0" containerWithKeyObject="31468CC0-1E95-BB68-7906-01CAF14B1AEC" localFKIndex="14162C1E-26C1-9ECD-8932-DCEEE8FB909A" name="PlanesEstudio_Carreras_FK">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 03:59:00 UTC</createdTime>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<referredTableLongName>Carreras</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>582D820A-97B9-D594-4231-83ACC42D8EC4</referredTableID>
+<keyObject>E4CDEB6F-235D-5005-881F-F9C71572B0AC</keyObject>
+<referredKeyID>E4CDEB6F-235D-5005-881F-F9C71572B0AC</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>idCarrera</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

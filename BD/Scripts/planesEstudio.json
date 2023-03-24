@@ -1,0 +1,10 @@
+{
+    "clave":"<string>",
+    "nombre":"<string>",
+    "vigencia":"<string>",
+    "creditos":"<int>",
+    "estatus":"<bit>",
+    "carreras":{
+        "idCarrera":"<ref(carreras)>"
+    }
+}

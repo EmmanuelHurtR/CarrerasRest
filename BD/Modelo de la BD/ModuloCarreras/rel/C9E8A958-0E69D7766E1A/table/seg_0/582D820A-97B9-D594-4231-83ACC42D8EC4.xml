@@ -1,0 +1,106 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="582D820A-97B9-D594-4231-83ACC42D8EC4" name="Carreras">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 01:47:38 UTC</createdTime>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<ordsAlias>table_2</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="idCarrera" id="7AFDB590-E14E-6DA5-60C9-1BFA326287D4">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 03:51:40 UTC</createdTime>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre" id="194CE9B7-6AE3-1A7D-138B-85AEB94A7728">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 03:51:40 UTC</createdTime>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="siglas" id="5E2348DB-EE47-4E1A-CA83-5484A013DFB4">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 03:51:40 UTC</createdTime>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="objetivo" id="967964FF-F97D-E0D8-0E73-5D33F3540183">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 03:51:40 UTC</createdTime>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="perfilIngreso" id="83C9F9A1-3CCF-38BA-6FB0-5BAE89D4060A">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 03:51:40 UTC</createdTime>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500</dataTypeSize>
+<ownDataTypeParameters>500,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="perfilEgreso" id="CE3A5A59-00D8-BD32-ADE6-69BD5196FC09">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 03:51:40 UTC</createdTime>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500</dataTypeSize>
+<ownDataTypeParameters>500,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="estatus" id="43D0084A-4526-8CBA-7AB4-402FE35FAC36">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 03:51:40 UTC</createdTime>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT055</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E4CDEB6F-235D-5005-881F-F9C71572B0AC" name="Carreras_PK">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 03:51:40 UTC</createdTime>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7AFDB590-E14E-6DA5-60C9-1BFA326287D4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

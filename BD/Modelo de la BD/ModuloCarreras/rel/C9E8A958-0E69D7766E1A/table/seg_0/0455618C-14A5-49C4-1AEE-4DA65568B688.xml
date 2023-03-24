@@ -1,0 +1,140 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0455618C-14A5-49C4-1AEE-4DA65568B688" name="Asignaturas">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 03:49:28 UTC</createdTime>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<ordsAlias>table_5</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="idAsignatura" id="948F90C6-4D4A-CD92-6BA2-1C2BDB9A6CB1">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 03:58:39 UTC</createdTime>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="clave" id="DA393595-A42D-27E6-1BD4-56906DBEB1FF">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 03:58:39 UTC</createdTime>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre" id="3055F83C-E5AF-2D0E-A949-8D4469067424">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 03:58:39 UTC</createdTime>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="descripcion" id="11A3BEA7-E1CE-1D40-9E20-11823F546D59">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 03:58:39 UTC</createdTime>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="creditos" id="2DA3C437-4AB6-574A-95F9-A8520451EBAE">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 03:58:39 UTC</createdTime>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tipo" id="164B4F1F-732F-E2A1-6CF4-B6E6925E5924">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 03:58:39 UTC</createdTime>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="horasTotales" id="B92DFAA6-D21B-C9F3-08A1-28B90C1F1421">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 03:58:39 UTC</createdTime>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="estatus" id="004E8F81-92E1-D11D-D27A-87F3603AECC6">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 03:58:39 UTC</createdTime>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT034</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="idPlanEstudio" id="C1B6B802-9619-4FA5-41EE-0D3EC0327D06">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 03:58:39 UTC</createdTime>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="AAEC2517-9CE4-5441-EE1E-28216FFB717B" referredColumn="4FDE48F6-1F18-1428-4FE5-C66B5A8D501C"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="510E60A9-D8EA-B594-5883-A15049891C59" name="Asignaturas_PK">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 03:58:39 UTC</createdTime>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="948F90C6-4D4A-CD92-6BA2-1C2BDB9A6CB1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EE95EB0D-A0F6-92BD-3AF2-A5BF9BBDF623" name="Asignaturas_PlanesEstudio_FK">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 03:59:56 UTC</createdTime>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C1B6B802-9619-4FA5-41EE-0D3EC0327D06"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

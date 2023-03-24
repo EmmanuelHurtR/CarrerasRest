@@ -1,0 +1,151 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="1E3FDBB4-B7B2-B1BB-9A04-311783A343F3" name="Especialidades">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 04:05:48 UTC</createdTime>
+<generatorID>8C9D3CD2-B639-2B65-86D6-55BF6316E686</generatorID>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<engineerTo>
+<item key="C9E8A958-5594-8A67-1E8C-0E69D7766E1A" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="idEspecialidad" id="0E2E1C98-84DA-36AF-25E5-6807FFFDC249">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 04:05:48 UTC</createdTime>
+<generatorID>873CF94A-2A33-A4BE-C750-CA0C8661E274</generatorID>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<engineerTo>
+<item key="C9E8A958-5594-8A67-1E8C-0E69D7766E1A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="clave" id="FBC37592-95E6-E4EA-3A05-2359126786C6">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 04:05:48 UTC</createdTime>
+<generatorID>CA09E0FF-49BD-720F-4B1E-8A58EE748CD6</generatorID>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<engineerTo>
+<item key="C9E8A958-5594-8A67-1E8C-0E69D7766E1A" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nombre" id="1F9FA18D-7B91-8B25-FE17-3878D0D58298">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 04:05:48 UTC</createdTime>
+<generatorID>D81BD48C-71EC-1268-53CA-926CE63373BE</generatorID>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<engineerTo>
+<item key="C9E8A958-5594-8A67-1E8C-0E69D7766E1A" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="descripcion" id="8DF60015-10BE-CC8A-08A2-328FC223F10B">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 04:05:48 UTC</createdTime>
+<generatorID>6901BED6-D328-E652-2FFE-376B28C8085E</generatorID>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<engineerTo>
+<item key="C9E8A958-5594-8A67-1E8C-0E69D7766E1A" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="vigencia" id="C90994C7-B5E7-6528-F1E6-5A1CF7D4C5F4">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 04:05:48 UTC</createdTime>
+<generatorID>C7D878F0-A27B-987A-27A6-9E08BA4B7C36</generatorID>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<engineerTo>
+<item key="C9E8A958-5594-8A67-1E8C-0E69D7766E1A" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="creditos" id="3FCA1BBE-1C32-AB4E-CE4A-A33726CAE85E">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 04:05:48 UTC</createdTime>
+<generatorID>333AE9CC-AF72-96FE-336B-CD1C8331BFA3</generatorID>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<engineerTo>
+<item key="C9E8A958-5594-8A67-1E8C-0E69D7766E1A" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="estatus" id="F5406403-3219-8A27-952A-CED095016FE6">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 04:05:48 UTC</createdTime>
+<generatorID>4E160BD9-2737-33BD-90E9-DB4B686419D1</generatorID>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<engineerTo>
+<item key="C9E8A958-5594-8A67-1E8C-0E69D7766E1A" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT034</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="idPlanEstudio" id="FD26F605-458D-A5C3-D4F4-DD307B551102">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 04:05:48 UTC</createdTime>
+<generatorID>8E216149-2BC4-A537-AE6C-48CB97E34B04</generatorID>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<engineerTo>
+<item key="C9E8A958-5594-8A67-1E8C-0E69D7766E1A" value="true"/>
+</engineerTo>
+<referedAttribute>2572453B-4EBB-7AB3-4433-4DF26A88F25A</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="27A88FBE-2D5F-3CAD-762F-03CF6C16EB47" name="Especialidades PK">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 04:05:48 UTC</createdTime>
+<generatorID>70C7A035-A23B-0DED-9A72-D9F8290E9933</generatorID>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<engineerTo>
+<item key="C9E8A958-5594-8A67-1E8C-0E69D7766E1A" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>0E2E1C98-84DA-36AF-25E5-6807FFFDC249</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

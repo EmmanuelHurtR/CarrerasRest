@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Especialidades_PlanesEstudio_FK" directorySegmentName="seg_0" id="8E216149-2BC4-A537-AE6C-48CB97E34B04">
+<createdBy>Emmanuel</createdBy>
+<createdTime>2023-03-24 04:05:48 UTC</createdTime>
+<generatorID>D854CEAE-A6B0-88D8-D72D-40BC0A67FDC0</generatorID>
+<ownerDesignName>ModuloCarreras</ownerDesignName>
+<engineerTo>
+<item key="C9E8A958-5594-8A67-1E8C-0E69D7766E1A" value="true"/>
+</engineerTo>
+<sourcePk>210B64D5-D878-87FE-8A96-6C4C82714975</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>D99312AE-A11B-5AB9-7874-BA3A0CCCE673</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>1E3FDBB4-B7B2-B1BB-9A04-311783A343F3</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>
