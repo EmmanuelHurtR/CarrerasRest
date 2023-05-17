@@ -24,3 +24,5 @@ def modificarCarrera():
 def eliminarCarrera(id):
     cn=Conexion()
     return cn.eliminarCarrera(id)
+
+

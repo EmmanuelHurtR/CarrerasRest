@@ -6,6 +6,7 @@ class Conexion():
         self.cliente=MongoClient()
         self.bd=self.cliente.ModuloCarreras
         self.col=self.bd.carreras
+        self.col2=self.bd.planesEstudio
 
     def insertar_carrera(self, carrera):
         respuesta = {"Estatus": "", "Mensaje": ""}
@@ -51,4 +52,28 @@ class Conexion():
         else:
             resp["estatus"] = "Error"
             resp["mensaje"] = "La carrera no existe o no se encuentra en estatus de Inactiva"
+        return resp
+
+#Planes de estudio
+    def insertar_planEstudio(self, planesEstudio):
+        respuesta = {"Estatus": "", "Mensaje": ""}
+        planesEstudio["estatus"] = "A"
+        self.col2.insert_one(planesEstudio)
+        respuesta["Estatus"] = "OK"
+        respuesta["Mensaje"] = "Plan de Estudio agregado correctamente"
+        return respuesta
+
+    def consultarPlanesEstudio(self):
+        resp = {"estatus": "", "mensaje": ""}
+        res = self.bd.vPlanesEstudio.find({})
+        lista = []
+        for s in res:
+            lista.append(s)
+        if len(lista) > 0:
+            resp["estatus"] = "OK"
+            resp["mensaje"] = "Lista de Planes De Estudio"
+            resp["carreras"] = lista
+        else:
+            resp["estatus"] = "OK"
+            resp["mensaje"] = "No hay Planes De Estudio Registrados"
         return resp
