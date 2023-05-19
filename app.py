@@ -1,10 +1,12 @@
 from flask import Flask
 from carrerasBP import carreraBP
 from planesEstudiosBP import planeEstudioBP
+from especialidadesBP import especialidadBP
 
 app=Flask(__name__)
 app.register_blueprint(carreraBP) #Cargar la funcionalidad inclueda en el componente solicitudBPV2
 app.register_blueprint(planeEstudioBP)
+app.register_blueprint(especialidadBP)
 
 @app.route('/',methods=['GET'])
 def init():

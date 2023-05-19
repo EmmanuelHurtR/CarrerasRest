@@ -22,27 +22,27 @@ def get_user_roles(user):
 def error_handler():
     return {"estatus":"Error", "mensaje":"Autorizacion denegana, usted no cuenta con los permisos necesarios para realizar esta accion"}
 
-@planeEstudioBP.route('/Carreras/planEstudio', methods=['GET'])
+@planeEstudioBP.route('/PlanesEstudio', methods=['GET'])
 @auth.login_required(role=['A', 'E', 'D'])
 def ConsultaPlanesEstudio():
     cn=Conexion()
     return cn.consultarPlanesEstudio()
 
-@planeEstudioBP.route('/Carreras/planEstudio', methods=['POST'])
+@planeEstudioBP.route('/PlanesEstudio', methods=['POST'])
 @auth.login_required(role='A')
 def agregarPlanEstudio():
     cn=Conexion()
     datos=request.get_json()
     return cn.insertar_planEstudio(datos)
 
-@planeEstudioBP.route("/Carreras/planEstudio", methods=['PUT'])
+@planeEstudioBP.route("/PlanesEstudio", methods=['PUT'])
 @auth.login_required(role='A')
 def modificarCarrera():
     cn = Conexion()
     datos = request.get_json()
     return cn.modificarPlanesEstudio(datos)
 
-@planeEstudioBP.route('/Carreras/planEstudio/<int:id>', methods=['DELETE'])
+@planeEstudioBP.route('/PlanesEstudio/<int:id>', methods=['DELETE'])
 @auth.login_required(role='A')
 def eliminarPlanEstudio(id):
     cn=Conexion()

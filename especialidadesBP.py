@@ -3,7 +3,6 @@ from model import Conexion
 from flask_httpauth import HTTPBasicAuth
 
 especialidadBP=Blueprint("especialidadBP", __name__)
-
 auth=HTTPBasicAuth()
 
 @auth.verify_password
@@ -23,27 +22,27 @@ def get_user_roles(user):
 def error_handler():
     return {"estatus":"Error", "mensaje":"Autorizacion denegana, usted no cuenta con los permisos necesarios para realizar esta accion"}
 
-@especialidadBP.route('/Carreras/especialidad', methods=['POST'])
-@auth.login_required(role=['A', 'E', 'D'])
+@especialidadBP.route('/Especialidades', methods=['POST'])
+@auth.login_required(role="A")
 def agregarEspecialidad():
     cn=Conexion()
     datos=request.get_json()
-    return cn.insertar_planEstudio(datos)
+    return cn.insertar_especialidades(datos)
 
-@especialidadBP.route('/Carreras/especialidad', methods=['GET'])
-@auth.login_required(role=['A'])
+@especialidadBP.route('/Especialidades', methods=['GET'])
+@auth.login_required(role=['A', 'E', 'D'])
 def ConsultaEspecialidad():
     cn=Conexion()
-    return cn.consultarPlanesEstudio()
+    return cn.consultarEspecialidades()
 
-@especialidadBP.route('/Carreras/especialidad', methods=['PUT'])
+@especialidadBP.route('/Especialidades', methods=['PUT'])
 @auth.login_required(role='A')
 def modificarEspecialidad():
     cn=Conexion()
     datos=request.get_json()
-    return cn.modificarEspecialidades()
+    return cn.modificarEspecialidad(datos)
 
-@especialidadBP.route('/Carreras/especialidad<int:id>', methods=['DELETE'])
+@especialidadBP.route('/Especialidades/<int:id>', methods=['DELETE'])
 @auth.login_required(role='A')
 def eliminarEspecialidad(id):
     cn=Conexion()
