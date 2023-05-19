@@ -124,7 +124,7 @@ class Conexion():
             resp["carreras"] = lista
         else:
             resp["estatus"] = "OK"
-            resp["mensaje"] = "No hay Planes De Estudio Registrados"
+            resp["mensaje"] = "No hay Planes De Estudios Registrados"
         return resp
 
 
