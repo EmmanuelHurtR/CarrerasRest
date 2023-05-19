@@ -28,6 +28,12 @@ def consultaCarreras():
     cn=Conexion()
     return cn.consultarCarreras()
 
+@carreraBP.route('/Carreras/<string:siglas>',methods=['GET'])
+@auth.login_required(role=['A', 'E', 'D'])
+def consultarCarrera(siglas):
+    cn=Conexion()
+    return cn.consultarCarreraSiglas(siglas)
+
 @carreraBP.route('/Carreras',methods=['POST'])
 @auth.login_required(role='A')
 def agregarCarrera():
