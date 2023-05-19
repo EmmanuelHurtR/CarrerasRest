@@ -8,6 +8,7 @@ class Conexion():
         self.col=self.bd.carreras
         self.col2=self.bd.planesEstudio
         self.col3=self.bd.especialidades
+        self.col4=self.bd.asignaturas
 
     #FUNCIONES DEL MODULO CARRERAS
 
