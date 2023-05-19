@@ -7,6 +7,7 @@ class Conexion():
         self.bd=self.cliente.ModuloCarreras
         self.col=self.bd.carreras
         self.col2=self.bd.planesEstudio
+        self.col3=self.bd.especialidades
 
     #FUNCIONES DEL MODULO CARRERAS
 
@@ -188,7 +189,84 @@ class Conexion():
 
 
     # FUNCIONES DEL MODULO ESPECIALIDADES
+    def consultarEspecialidades(self):
+        resp = {"estatus": "", "mensaje": ""}
+        res = self.bd.vEspecialidades.find({})
+        lista = []
+        for s in res:
+            lista.append(s)
+        if len(lista) > 0:
+            resp["estatus"] = "OK"
+            resp["mensaje"] = "Especialidades encontradas"
+            resp["carreras"] = lista
+        else:
+            resp["estatus"] = "OK"
+            resp["mensaje"] = "No se encuentran especialidades"
+        return resp
 
+    def insertar_especialidades(self, carrera):
+        respuesta = {"Estatus": "", "Mensaje": ""}
+        administrador = self.bd.usuarios.find_one(
+            {"tipo": "A", "estatus": "A", "administrativo.estatus": "A"},
+            projection={"administrativo": True, "_id": False})
+        if administrador:
+            carrera["estatus"] = "A"
+            self.col3.insert_one(carrera)
+            respuesta["Estatus"] = "OK"
+            respuesta["Mensaje"] = "Especialidad agregada correctamente"
+        else:
+            respuesta["Estatus"] = "Error"
+            respuesta["Mensaje"] = "El usuario no existe"
+        return respuesta
+
+    def modificarEspecialidad(self, data):
+        resp = {"estatus:": "", "mensaje:": ""}
+        estatus = self.bd.especialidades.find_one(
+            {"_id": data["_id"]},
+            projection={"estatus": True})
+        print(estatus)
+        if estatus != None:
+            if estatus.get("estatus") == "A":
+                res = self.bd.especialidades.find_one({"_id": data["_id"]})
+                print(res)
+                if res:
+                    self.bd.especialidades.update_one({"_id": data["_id"]}, {"$set": data})
+                    print(data)
+                    resp["estatus:"] = "OK"
+                    resp["mensaje:"] = "Se actualizo la especialidad correctamente"
+                else:
+                    resp["estatus:"] = "Error"
+                    resp["mensaje:"] = "La especialidad esta deshabilitada"
+            else:
+                resp["estatus:"] = "Error"
+                resp["mensaje:"] = "El estatus de la especialidad no se encuentra Activa"
+        else:
+            resp["estatus:"] = "Error"
+            resp["mensaje:"] = "El id de la especialidad no existe"
+        return resp
+
+    def eliminarEspecialidad(self, id):
+        resp = {"estatus": "", "mensaje": ""}
+        estatus = self.bd.especialidades.find_one(
+            {"_id": id},
+            projection={"estatus": True})
+        print(estatus)
+        if estatus != None:
+            if estatus.get("estatus") == "I":
+                res = self.bd.especialidades.delete_one({"_id": id})
+                if res.deleted_count > 0:
+                    resp["estatus"] = "OK"
+                    resp["mensaje"] = "La especialidad se elimino con exito"
+                else:
+                    resp["estatus"] = "Error"
+                    resp["mensaje"] = "No se pudo eliminar"
+            else:
+                resp["estatus:"] = "Error"
+                resp["mensaje:"] = "El estatus de la especialidad no se encuentra Inactiva"
+        else:
+            resp["estatus:"] = "Error"
+            resp["mensaje:"] = "El id de la especialidad no existe"
+        return resp
 
 
     # FUNCIONES DEL MODULO ASIGNATURAS
