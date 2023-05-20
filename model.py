@@ -1,5 +1,4 @@
 from pymongo import MongoClient
-from bson import ObjectId
 
 class Conexion():
     def __init__(self):
@@ -27,16 +26,16 @@ class Conexion():
             resp["mensaje"] = "No hay carreras registradas"
         return resp
 
-    def consultarCarreraSiglas(self, siglas):
+    def consultarCarreraID(self, id):
         resp = {"estatus": "", "mensaje": ""}
-        res = self.bd.vCarreras.find_one({"siglas": siglas})
+        res = self.bd.vCarreras.find_one({"id": id})
         if res:
             resp["estatus"] = "OK"
             resp["mensaje"] = "Carrera encontrada"
             resp["carrera"] = res
         else:
             resp["estatus"] = "Error"
-            resp["mensaje"] = "No hay carreras registradas con esas siglas"
+            resp["mensaje"] = "El id de la carrera que buscas no existe"
         return resp
 
     def insertar_carrera(self, carrera):
@@ -44,50 +43,49 @@ class Conexion():
         administrador = self.bd.usuarios.find_one(
             {"tipo": "A", "estatus": "A", "administrativo.estatus": "A"},
             projection={"administrativo": True, "_id": False})
-        if administrador:
-            carrera["estatus"] = "A"
-            self.col.insert_one(carrera)
-            respuesta["Estatus"] = "OK"
-            respuesta["Mensaje"] = "Carrera agregada correctamente"
+        carrera_existente = self.bd.vCarreras.find_one({"id": carrera["_id"]})
+        if not carrera_existente:
+            if administrador:
+                carrera["estatus"] = "A"
+                self.col.insert_one(carrera)
+                respuesta["Estatus"] = "OK"
+                respuesta["Mensaje"] = "Carrera agregada correctamente"
+            else:
+                respuesta["Estatus"] = "Error"
+                respuesta["Mensaje"] = "El usuario no existe"
         else:
             respuesta["Estatus"] = "Error"
-            respuesta["Mensaje"] = "El usuario no existe"
+            respuesta["Mensaje"] = "El id de la carrera ya existe en la base de datos, asegurate que sea uno no existente"
         return respuesta
 
     def modificarCarrera(self, data):
         resp = {"estatus:": "", "mensaje:": ""}
-        estatus = self.bd.carreras.find_one(
+        existeid = self.bd.carreras.find_one(
             {"_id": data["_id"]},
             projection={"estatus": True})
-        print(estatus)
-        if estatus != None:
-            if estatus.get("estatus") == "A":
-                res = self.bd.carreras.find_one({"_id": data["_id"]})
-                print(res)
-                if res:
-                    self.bd.carreras.update_one({"_id": data["_id"]}, {"$set": data})
-                    print(data)
-                    resp["estatus:"] = "OK"
-                    resp["mensaje:"] = "Se actualizo la carrera correctamente"
-                else:
-                    resp["estatus:"] = "Error"
-                    resp["mensaje:"] = "La carrera esta Inactiva"
+        print(existeid)
+        if existeid != None:
+            if existeid.get("estatus") == "A" or existeid.get("estatus") == "I":
+                self.bd.carreras.update_one({"_id": data["_id"]}, {"$set": data})
+                print(data)
+                resp["estatus:"] = "OK"
+                resp["mensaje:"] = "Se actualizo la carrera correctamente"
             else:
                 resp["estatus:"] = "Error"
-                resp["mensaje:"] = "El estatus de la carrera no se encuentra Activa"
+                resp["mensaje:"] = "El estatus de la carrera no se encuentra Activa o Inactiva"
         else:
             resp["estatus:"] = "Error"
-            resp["mensaje:"] = "El id de la carrera no existe"
+            resp["mensaje:"] = "El id ingresado de la carrena no existe"
         return resp
 
     def eliminarCarrera(self, id):
         resp = {"estatus": "", "mensaje": ""}
-        estatus = self.bd.carreras.find_one(
+        existeid = self.bd.carreras.find_one(
             {"_id": id},
             projection={"estatus": True})
-        print(estatus)
-        if estatus != None:
-            if estatus.get("estatus") == "I":
+        print(existeid)
+        if existeid:
+            if existeid.get("estatus") == "I":
                 res = self.bd.carreras.delete_one({"_id": id})
                 if res.deleted_count > 0:
                     resp["estatus"] = "OK"
@@ -96,11 +94,11 @@ class Conexion():
                     resp["estatus"] = "Error"
                     resp["mensaje"] = "No se pudo eliminar"
             else:
-                resp["estatus:"] = "Error"
-                resp["mensaje:"] = "El estatus de la carrera no se encuentra Inactiva"
+                resp["estatus"] = "Error"
+                resp["mensaje"] = "El estatus de la carrera no se encuentra Inactiva, para elimimar la carrera debe encontrarse Inactiva"
         else:
-            resp["estatus:"] = "Error"
-            resp["mensaje:"] = "El id de la carrera no existe"
+            resp["estatus"] = "Error"
+            resp["mensaje"] = "El id ingresado de la carrena no existe"
         return resp
 
 
