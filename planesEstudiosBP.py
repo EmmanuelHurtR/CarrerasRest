@@ -28,6 +28,12 @@ def ConsultaPlanesEstudio():
     cn=Conexion()
     return cn.consultarPlanesEstudio()
 
+@planeEstudioBP.route('/PlanesEstudio/<int:id>',methods=['GET'])
+@auth.login_required(role=['A', 'E', 'D'])
+def consultarPlanEstudioID(id):
+    cn=Conexion()
+    return cn.consultarPlanEstudioID(id)
+
 @planeEstudioBP.route('/PlanesEstudio', methods=['POST'])
 @auth.login_required(role='A')
 def agregarPlanEstudio():

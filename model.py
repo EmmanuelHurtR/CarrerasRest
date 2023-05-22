@@ -103,8 +103,6 @@ class Conexion():
             resp["mensaje:"] = "El id de la carrera no existe"
         return resp
 
-
-
     # FUNCIONES DEL MODULO PLANES DE ESTUDIO
     def consultarPlanesEstudio(self):
         resp = {"estatus": "", "mensaje": ""}
@@ -121,18 +119,34 @@ class Conexion():
             resp["mensaje"] = "No hay Planes De Estudios Registrados"
         return resp
 
+    def consultarPlanEstudioID(self, id):
+        resp = {"estatus": "", "mensaje": ""}
+        res = self.bd.vPlanesEstudio.find_one({"id": id})
+        if res:
+            resp["estatus"] = "OK"
+            resp["mensaje"] = "Plan de Estudio encontrado"
+            resp["carrera"] = res
+        else:
+            resp["estatus"] = "Error"
+            resp["mensaje"] = "El id del Plan de Estudio que buscas no existe"
+        return resp
+
     def insertar_planEstudio(self, planesEstudio):
         respuesta = {"Estatus": "", "Mensaje": ""}
         administrador = self.bd.usuarios.find_one(
             {"tipo": "A", "estatus": "A", "administrativo.estatus": "A"},
             projection={"administrativo": True, "_id": False})
-        print(administrador)
-        print(planesEstudio)
+        pestudio_existente = self.bd.vPlanesEstudio.find_one({"id": planesEstudio["_id"]})
         if administrador:
-            planesEstudio["estatus"] = "A"
-            self.col2.insert_one(planesEstudio)
-            respuesta["Estatus"] = "OK"
-            respuesta["Mensaje"] = "Plan de Estudio agregado correctamente"
+            if not pestudio_existente:
+                planesEstudio["estatus"] = "A"
+                self.col2.insert_one(planesEstudio)
+                respuesta["Estatus"] = "OK"
+                respuesta["Mensaje"] = "Plan de Estudio agregado correctamente"
+            else:
+                respuesta["Estatus"] = "Error"
+                respuesta[
+                    "Mensaje"] = "El id del Plan de Estudio ya existe en la base de datos, asegurate que sea uno no existente"
         else:
             respuesta["Estatus"] = "Error"
             respuesta["Mensaje"] = "El usuario no existe"
@@ -140,51 +154,46 @@ class Conexion():
 
     def modificarPlanesEstudio(self, data):
         resp = {"estatus:": "", "mensaje:": ""}
-        estatus = self.bd.planesEstudio.find_one(
+        existeid = self.bd.planesEstudio.find_one(
             {"_id": data["_id"]},
             projection={"estatus": True})
-        print(estatus)
-        if estatus != None:
-            if estatus.get("estatus") == "A":
-                res = self.bd.planesEstudio.find_one({"_id": data["_id"]})
-                print(res)
-                if res:
-                    self.bd.planesEstudio.update_one({"_id": data["_id"]}, {"$set": data})
-                    print(data)
-                    resp["estatus:"] = "OK"
-                    resp["mensaje:"] = "Se actualizo el plan correctamente"
-                else:
-                    resp["estatus:"] = "Error"
-                    resp["mensaje:"] = "El plam esta Inactiva"
+        print(existeid)
+        if existeid != None:
+            if existeid.get("estatus") == "A" or existeid.get("estatus") == "I":
+                self.bd.planesEstudio.update_one({"_id": data["_id"]}, {"$set": data})
+                print(data)
+                resp["estatus:"] = "OK"
+                resp["mensaje:"] = "Se actualizo el Plan de Estudio correctamente"
             else:
                 resp["estatus:"] = "Error"
-                resp["mensaje:"] = "El estatus del plan no se encuentra Activa"
+                resp["mensaje:"] = "El estatus del Plan Estudio no se encuentra Activa o Inactiva"
         else:
             resp["estatus:"] = "Error"
-            resp["mensaje:"] = "El id del plan no existe"
+            resp["mensaje:"] = "El id ingresado del Plan de Estudio no existe"
         return resp
 
     def eliminarPlanEstudio(self, id):
         resp = {"estatus": "", "mensaje": ""}
-        estatus = self.bd.planesEstudio.find_one(
+        existeid = self.bd.planesEstudio.find_one(
             {"_id": id},
             projection={"estatus": True})
-        print(estatus)
-        if estatus != None:
-            if estatus.get("estatus") == "I":
+        print(existeid)
+        if existeid:
+            if existeid.get("estatus") == "I":
                 res = self.bd.planesEstudio.delete_one({"_id": id})
                 if res.deleted_count > 0:
                     resp["estatus"] = "OK"
-                    resp["mensaje"] = "el plan se elimino con exito"
+                    resp["mensaje"] = "El Plan de Estudio se elimino con exito"
                 else:
                     resp["estatus"] = "Error"
-                    resp["mensaje"] = "No se ha podido eliminar"
+                    resp["mensaje"] = "No se pudo eliminar"
             else:
-                resp["estatus:"] = "Error"
-                resp["mensaje:"] = "El estatus del plan de estudios no se encuentra Inactiva"
+                resp["estatus"] = "Error"
+                resp[
+                    "mensaje"] = "El estatus del Plan de Estudio no se encuentra Inactiva, para elimimar el Plan de Estudio debe encontrarse Inactiva"
         else:
-            resp["estatus:"] = "Error"
-            resp["mensaje:"] = "El id del plan de estudios no existe"
+            resp["estatus"] = "Error"
+            resp["mensaje"] = "El id ingresado del Plan de Estudio no existe"
         return resp
 
 
