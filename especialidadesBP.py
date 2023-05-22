@@ -27,14 +27,18 @@ def error_handler():
 def agregarEspecialidad():
     cn=Conexion()
     datos=request.get_json()
-    return cn.insertar_especialidades(datos)
+    return cn.insertar_especialidad(datos)
 
 @especialidadBP.route('/Especialidades', methods=['GET'])
 @auth.login_required(role=['A', 'E', 'D'])
 def ConsultaEspecialidad():
     cn=Conexion()
     return cn.consultarEspecialidades()
-
+@especialidadBP.route('/Especialidades/<int:id>',methods=['GET'])
+@auth.login_required(role=['A', 'E', 'D'])
+def consultarEspecialidadID(id):
+    cn=Conexion()
+    return cn.consultarEspecialidadesID(id)
 @especialidadBP.route('/Especialidades', methods=['PUT'])
 @auth.login_required(role='A')
 def modificarEspecialidad():

@@ -196,23 +196,45 @@ class Conexion():
             lista.append(s)
         if len(lista) > 0:
             resp["estatus"] = "OK"
-            resp["mensaje"] = "Especialidades encontradas"
+            resp["mensaje"] = "Lista de Especialidades"
             resp["carreras"] = lista
         else:
-            resp["estatus"] = "OK"
-            resp["mensaje"] = "No se encuentran especialidades"
+            resp["estatus"] = "Error"
+            resp["mensaje"] = "No hay Especialidades registradas"
         return resp
 
-    def insertar_especialidades(self, carrera):
+    def consultarEspecialidadesID(self, id):
+        resp = {"estatus": "", "mensaje": ""}
+        res = self.bd.vEspecialidades.find_one({"id": id})
+        if res:
+            resp["estatus"] = "OK"
+            resp["mensaje"] = "Especialidad encontrada"
+            resp["carrera"] = res
+        else:
+            resp["estatus"] = "Error"
+            resp["mensaje"] = "El id de la especialidad que buscas no existe"
+        return resp
+
+    def insertar_especialidad(self, especialidad):
         respuesta = {"Estatus": "", "Mensaje": ""}
         administrador = self.bd.usuarios.find_one(
             {"tipo": "A", "estatus": "A", "administrativo.estatus": "A"},
             projection={"administrativo": True, "_id": False})
+        especialidad_existente = self.bd.vEspecialidades.find_one({"id": especialidad["_id"]})
+        idf_existe = self.bd.planesEstudio.find_one({"_id": especialidad["planesEstudio.idPlanEstudio"]})
         if administrador:
-            carrera["estatus"] = "A"
-            self.col3.insert_one(carrera)
-            respuesta["Estatus"] = "OK"
-            respuesta["Mensaje"] = "Especialidad agregada correctamente"
+            if not especialidad_existente:
+                if idf_existe: 
+                   especialidad["estatus"] = "A"
+                   self.col.insert_one(especialidad)
+                   respuesta["Estatus"] = "OK"
+                   respuesta["Mensaje"] = "Especialidad agregada correctamente"
+                else:
+                    respuesta["Estatus"] = "Error"
+                    respuesta["Mensaje"] = "El id del campo foraneo no existe"
+            else:
+                respuesta["Estatus"] = "Error"
+                respuesta["Mensaje"] = "El id de la especialidad ya existe en la base de datos, asegurate que sea uno no existente"
         else:
             respuesta["Estatus"] = "Error"
             respuesta["Mensaje"] = "El usuario no existe"
