@@ -237,38 +237,32 @@ class Conexion():
 
     def modificarEspecialidad(self, data):
         resp = {"estatus:": "", "mensaje:": ""}
-        estatus = self.bd.especialidades.find_one(
+        existeid = self.bd.especialidades.find_one(
             {"_id": data["_id"]},
             projection={"estatus": True})
-        print(estatus)
-        if estatus != None:
-            if estatus.get("estatus") == "A":
-                res = self.bd.especialidades.find_one({"_id": data["_id"]})
-                print(res)
-                if res:
-                    self.bd.especialidades.update_one({"_id": data["_id"]}, {"$set": data})
-                    print(data)
-                    resp["estatus:"] = "OK"
-                    resp["mensaje:"] = "Se actualizo la especialidad correctamente"
-                else:
-                    resp["estatus:"] = "Error"
-                    resp["mensaje:"] = "La especialidad esta deshabilitada"
+        print(existeid)
+        if existeid != None:
+            if existeid.get("estatus") == "A" or existeid.get("estatus") == "I":
+                self.bd.especialidades.update_one({"_id": data["_id"]}, {"$set": data})
+                print(data)
+                resp["estatus:"] = "OK"
+                resp["mensaje:"] = "Se actualizo la especialidad correctamente"
             else:
                 resp["estatus:"] = "Error"
-                resp["mensaje:"] = "El estatus de la especialidad no se encuentra Activa"
+                resp["mensaje:"] = "El estatus de la especialidad no se encuentra Activa o Inactiva"
         else:
             resp["estatus:"] = "Error"
-            resp["mensaje:"] = "El id de la especialidad no existe"
+            resp["mensaje:"] = "El id ingresado de la especialidad no existe"
         return resp
 
     def eliminarEspecialidad(self, id):
         resp = {"estatus": "", "mensaje": ""}
-        estatus = self.bd.especialidades.find_one(
+        existeid = self.bd.especialidades.find_one(
             {"_id": id},
             projection={"estatus": True})
-        print(estatus)
-        if estatus != None:
-            if estatus.get("estatus") == "I":
+        print(existeid)
+        if existeid:
+            if existeid.get("estatus") == "I":
                 res = self.bd.especialidades.delete_one({"_id": id})
                 if res.deleted_count > 0:
                     resp["estatus"] = "OK"
@@ -277,13 +271,12 @@ class Conexion():
                     resp["estatus"] = "Error"
                     resp["mensaje"] = "No se pudo eliminar"
             else:
-                resp["estatus:"] = "Error"
-                resp["mensaje:"] = "El estatus de la especialidad no se encuentra Inactiva"
+                resp["estatus"] = "Error"
+                resp["mensaje"] = "El estatus de la especialidad no se encuentra Inactiva, para elimimar la carrera debe encontrarse Inactiva"
         else:
-            resp["estatus:"] = "Error"
-            resp["mensaje:"] = "El id de la especialidad no existe"
+            resp["estatus"] = "Error"
+            resp["mensaje"] = "El id ingresado de la especialidad no existe"
         return resp
-
 
     # FUNCIONES DEL MODULO ASIGNATURAS
     def consultarAsignaturas(self):
