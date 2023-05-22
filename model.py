@@ -221,17 +221,12 @@ class Conexion():
             {"tipo": "A", "estatus": "A", "administrativo.estatus": "A"},
             projection={"administrativo": True, "_id": False})
         especialidad_existente = self.bd.vEspecialidades.find_one({"id": especialidad["_id"]})
-        idf_existe = self.bd.planesEstudio.find_one({"_id": especialidad["planesEstudio.idPlanEstudio"]})
         if administrador:
             if not especialidad_existente:
-                if idf_existe: 
-                   especialidad["estatus"] = "A"
-                   self.col.insert_one(especialidad)
-                   respuesta["Estatus"] = "OK"
-                   respuesta["Mensaje"] = "Especialidad agregada correctamente"
-                else:
-                    respuesta["Estatus"] = "Error"
-                    respuesta["Mensaje"] = "El id del campo foraneo no existe"
+                especialidad["estatus"] = "A"
+                self.col3.insert_one(especialidad)
+                respuesta["Estatus"] = "OK"
+                respuesta["Mensaje"] = "Especialidad agregada correctamente"
             else:
                 respuesta["Estatus"] = "Error"
                 respuesta["Mensaje"] = "El id de la especialidad ya existe en la base de datos, asegurate que sea uno no existente"
