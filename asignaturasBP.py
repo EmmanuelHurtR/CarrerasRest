@@ -28,6 +28,12 @@ def consultaAsignaturas():
     cn=Conexion()
     return cn.consultarAsignaturas()
 
+@asignaturasBP.route('/asignaturas/<int:id>',methods=['GET'])
+@auth.login_required(role=['A', 'E', 'D'])
+def consultarAsignaturaID(id):
+    cn=Conexion()
+    return cn.consultarAsignaturaID(id)
+
 @asignaturasBP.route('/asignaturas',methods=['POST'])
 @auth.login_required(role='A')
 def agregarAsignatura():

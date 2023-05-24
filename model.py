@@ -296,23 +296,41 @@ class Conexion():
             lista.append(s)
         if len(lista) > 0:
             resp["estatus"] = "OK"
-            resp["mensaje"] = "Asignaturas encontradas"
+            resp["mensaje"] = "Lista de Asignaturas"
             resp["carreras"] = lista
         else:
-            resp["estatus"] = "OK"
-            resp["mensaje"] = "No se encuentran las asignaturas"
+            resp["estatus"] = "Error"
+            resp["mensaje"] = "No hay Asigntauras registradas"
         return resp
 
-    def insertar_asignatura(self, carrera):
+    def consultarAsignaturasID(self, id):
+        resp = {"estatus": "", "mensaje": ""}
+        res = self.bd.vAsignaturas.find_one({"id": id})
+        if res:
+            resp["estatus"] = "OK"
+            resp["mensaje"] = "Asignatura encontrada"
+            resp["carrera"] = res
+        else:
+            resp["estatus"] = "Error"
+            resp["mensaje"] = "El id de la asignatura que buscas no existe"
+        return resp
+
+    def insertar_asignatura(self, asignatura):
         respuesta = {"Estatus": "", "Mensaje": ""}
         administrador = self.bd.usuarios.find_one(
             {"tipo": "A", "estatus": "A", "administrativo.estatus": "A"},
             projection={"administrativo": True, "_id": False})
+        asignatura_existente = self.bd.vAsignaturas.find_one({"id": asignatura["_id"]})
         if administrador:
-            carrera["estatus"] = "A"
-            self.col4.insert_one(carrera)
-            respuesta["Estatus"] = "OK"
-            respuesta["Mensaje"] = "Asignatura agregada correctamente"
+            if not asignatura_existente:
+                asignatura["estatus"] = "A"
+                self.col4.insert_one(asignatura)
+                respuesta["Estatus"] = "OK"
+                respuesta["Mensaje"] = "Asignatura agregada correctamente"
+            else:
+                respuesta["Estatus"] = "Error"
+                respuesta[
+                    "Mensaje"] = "El id de la asignatura ya existe en la base de datos, asegurate que sea uno no existente"
         else:
             respuesta["Estatus"] = "Error"
             respuesta["Mensaje"] = "El usuario no existe"
@@ -320,51 +338,46 @@ class Conexion():
 
     def modificarAsignatura(self, data):
         resp = {"estatus:": "", "mensaje:": ""}
-        estatus = self.bd.asignaturas.find_one(
+        existeid = self.bd.asignaturas.find_one(
             {"_id": data["_id"]},
             projection={"estatus": True})
-        print(estatus)
-        if estatus != None:
-            if estatus.get("estatus") == "A":
-                res = self.bd.asignaturas.find_one({"_id": data["_id"]})
-                print(res)
-                if res:
-                    self.bd.asignaturas.update_one({"_id": data["_id"]}, {"$set": data})
-                    print(data)
-                    resp["estatus:"] = "OK"
-                    resp["mensaje:"] = "Se actualizaron las asignaturas correctamente"
-                else:
-                    resp["estatus:"] = "Error"
-                    resp["mensaje:"] = "Las asignaturas se encuentran deshabilitadas"
+        print(existeid)
+        if existeid != None:
+            if existeid.get("estatus") == "A" or existeid.get("estatus") == "I":
+                self.bd.asignaturas.update_one({"_id": data["_id"]}, {"$set": data})
+                print(data)
+                resp["estatus:"] = "OK"
+                resp["mensaje:"] = "Se actualizo la asignatura correctamente"
             else:
                 resp["estatus:"] = "Error"
-                resp["mensaje:"] = "El estatus de la asignatura no se encuentra Activa"
+                resp["mensaje:"] = "El estatus de la asignatura no se encuentra Activa o Inactiva"
         else:
             resp["estatus:"] = "Error"
-            resp["mensaje:"] = "El id de la asignatura no existe"
+            resp["mensaje:"] = "El id ingresado de la asignatura no existe"
         return resp
 
     def eliminarAsignatura(self, id):
         resp = {"estatus": "", "mensaje": ""}
-        estatus = self.bd.asignaturas.find_one(
+        existeid = self.bd.asignaturas.find_one(
             {"_id": id},
             projection={"estatus": True})
-        print(estatus)
-        if estatus != None:
-            if estatus.get("estatus") == "I":
+        print(existeid)
+        if existeid:
+            if existeid.get("estatus") == "I":
                 res = self.bd.asignaturas.delete_one({"_id": id})
                 if res.deleted_count > 0:
                     resp["estatus"] = "OK"
                     resp["mensaje"] = "La asignatura se elimino con exito"
                 else:
                     resp["estatus"] = "Error"
-                    resp["mensaje"] = "No se pudo eliminar la asignatura"
+                    resp["mensaje"] = "No se pudo eliminar"
             else:
-                resp["estatus:"] = "Error"
-                resp["mensaje:"] = "El estatus de la asignatura no se encuentra Inactiva"
+                resp["estatus"] = "Error"
+                resp[
+                    "mensaje"] = "El estatus de la asignatura no se encuentra Inactiva, para elimimar la asignatura debe encontrarse Inactiva"
         else:
-            resp["estatus:"] = "Error"
-            resp["mensaje:"] = "El id de la asignatura no existe"
+            resp["estatus"] = "Error"
+            resp["mensaje"] = "El id ingresado de la asignatura no existe"
         return resp
 
     #FUNCIONES APARTE
