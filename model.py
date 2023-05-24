@@ -303,7 +303,7 @@ class Conexion():
             resp["mensaje"] = "No hay Asigntauras registradas"
         return resp
 
-    def consultarAsignaturasID(self, id):
+    def consultarAsignaturaID(self, id):
         resp = {"estatus": "", "mensaje": ""}
         res = self.bd.vAsignaturas.find_one({"id": id})
         if res:
